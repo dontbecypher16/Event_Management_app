@@ -1,0 +1,16 @@
+{
+  "name": "event_management_app",
+  "version": "1.0.0",
+  "description": "**FEATURES**\r * Event promoter can:\r      * Create new event\r      * Fetch all events\r      * Update event\r      * Delete event\r      * Search for events by category(req.query)",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.10"
+  }
+}
