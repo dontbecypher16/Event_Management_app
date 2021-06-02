@@ -16,6 +16,19 @@
 * Update folder structure
 * Install nodemon
 
+* register route
+   Create a new user 
+   Hash user's password
+   Create a token for user
+   Send token back to the user
+
+* login route
+    Check if user exists
+    Compare user's password with stored hash
+    Create a token 
+    Send token to user
+* authenticate user routes 
+
 **Schema**
    Validation
    // ex. required constraint, enum, default values
