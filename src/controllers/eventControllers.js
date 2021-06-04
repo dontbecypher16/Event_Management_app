@@ -46,7 +46,7 @@ exports.fetchOneEvent = (req, res) => {
 
 
 exports.updateOneEvent = (req, res) => {
-    Event.findByIdAndUpdate(req.params.id, (err, event) => {
+    Event.findByIdAndUpdate(req.params.id, {...req.body}, (err, event) => {
         if(err) {
             return res.status(500).json({ message: err})
         }
@@ -54,6 +54,11 @@ exports.updateOneEvent = (req, res) => {
             return res.status(404).json({ message: "event not found"})
         }
         else {
+            event.save((err, savedEvent) => {
+                if(err) {
+                    return res.status(500).json({ message: err})
+                }
+            })
             return res.status(200).json({ message: "event updated successfully" })
         }
     })

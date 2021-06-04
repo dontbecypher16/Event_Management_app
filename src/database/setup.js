@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const connectionString = 'mongodb+srv://richard_user:Plpl2021@cluster0.pcp8q.mongodb.net/eventsdb?retryWrites=true&w=majority'
+const connectionString = 'mongodb://localhost:27017/events'
 
 module.exports = function() {
    mongoose.connect(connectionString,

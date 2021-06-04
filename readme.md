@@ -27,7 +27,9 @@
     Compare user's password with stored hash
     Create a token 
     Send token to user
-* authenticate user routes 
+* authenticate user routes
+ * role-based authentication
+   * Seeding 
 
 **Schema**
    Validation
@@ -49,3 +51,4 @@ Event:
      models 
      routes
      index.js
+

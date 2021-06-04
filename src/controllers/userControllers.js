@@ -1,7 +1,7 @@
 const User = require('../models/userSchema')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const secret = "mySecurePassword"
+const secret = "verySecureSecret"
 const expiry = 3600
 
 exports.registerNewUser = (req, res) => {
@@ -41,7 +41,8 @@ exports.registerNewUser = (req, res) => {
                     jwt.sign({
                         id: newUser._id,
                         firstName: newUser.firstName,
-                        lastName: newUser.lastName
+                        lastName: newUser.lastName,
+                        role: newUser.role 
                     }, secret, {expiresIn: expiry}, (err, token) => {
                         if(err){
                             return res.status(500).json({ err })
@@ -93,7 +94,8 @@ exports.loginUser = (req, res) => {
                   id: existingUser._id,
                   firstName: existingUser.firstName,
                   lastName: existingUser.lastName,
-                  email: existingUser.email
+                  email: existingUser.email,
+                  role: existingUser.role
 
               }, secret, {expiresIn: expiry}, (err, token) => {
                 if(err) {

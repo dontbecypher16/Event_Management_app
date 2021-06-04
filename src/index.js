@@ -1,17 +1,29 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const logger = require('morgan')
 const dbSetup = require('./database/setup')
+const { checkIfAdmin, authenticateUser } = require('./middlewares/authenticate')
 
+// Routes
 const eventRoutes = require('./routes/eventRoutes')
 const userRoutes = require('./routes/userRoutes')
 
-app.use(express.json())
 
 dbSetup()
+//Seeders
+const {seedAdmin} = require('./seeders/admin')
+seedAdmin()
 
-app.use(eventRoutes)
+app.use(express.json())
+app.use(logger('combined'))
+
+
+
+app.use( eventRoutes)
 app.use('/auth', userRoutes)
+
+
 
 app.listen(port, () => {
     console.log(`Server running on ${port}`)
