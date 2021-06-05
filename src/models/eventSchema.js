@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const eventSchema = new mongoose.Schema({
     title: {
-        type:String,
+        type: String,
         required: true
     },
     cost: {
@@ -15,7 +15,11 @@ const eventSchema = new mongoose.Schema({
     category: {
         type: String,
         enum: ['business', 'casual', 'party', 'general']
-    }
+    },
+    img: {
+        data: Buffer,
+        type: String
+    } 
 })
 
 const Event = mongoose.model('Event', eventSchema)

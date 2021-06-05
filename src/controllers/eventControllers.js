@@ -1,8 +1,20 @@
 const Event = require("../models/eventSchema")
+const anonImage = require("../image");
+
+
 
 exports.createNewEvent = (req, res) => {
+    let obj = req.body;
+    obj['img'] = `https://imagegen.herokuapp.com/?category=${obj.category}` 
+    anonImage(obj)
+    .then((res) => {
+        console.log(res)
+        return res
+       });
+
+
     Event.create({
-        ...req.body
+        ...obj
     }, (err, newEvent) => {
         if(err){
             return res.status(500).json({ message: err})

@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const logger = require('morgan')
 const dbSetup = require('./database/setup')
 const { checkIfAdmin, authenticateUser } = require('./middlewares/authenticate')
+const request = require('request');
 
 // Routes
 const eventRoutes = require('./routes/eventRoutes')
@@ -16,13 +16,11 @@ const {seedAdmin} = require('./seeders/admin')
 seedAdmin()
 
 app.use(express.json())
-app.use(logger('combined'))
 
 
 
 app.use( eventRoutes)
 app.use('/auth', userRoutes)
-
 
 
 app.listen(port, () => {
