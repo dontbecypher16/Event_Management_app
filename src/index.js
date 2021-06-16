@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 const dbSetup = require('./database/setup')
 const { checkIfAdmin, authenticateUser } = require('./middlewares/authenticate')
-const request = require('request');
+
 
 // Routes
 const eventRoutes = require('./routes/eventRoutes')
