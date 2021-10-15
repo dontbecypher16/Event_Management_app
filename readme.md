@@ -1,4 +1,4 @@
-#Event Management app
+
 
 **FEATURES**
 * Event promoter can:
